@@ -14,6 +14,7 @@ public class Table {
 	}
 	
 	public Table addField(Field field) {
+		
 		this.fields.add(field);
 		return this;
 	}
@@ -23,11 +24,12 @@ public class Table {
 		private final String            name;
 		private final VariableFieldType variableFieldType;
 		
-		private boolean           notnull = false;
-		private boolean           autoIncrement = false;
-		private String            defaultValue = null;
+		private boolean notnull       = false;
+		private boolean autoIncrement = false;
+		private String  defaultValue  = null;
 		
 		public Field(String name, FieldType type) {
+			
 			this(name, type, null);
 		}
 		
@@ -38,16 +40,19 @@ public class Table {
 		}
 		
 		public Field setNonNull() {
+			
 			this.notnull = true;
 			return this;
 		}
 		
 		public Field setAutoIncrement() {
+			
 			this.autoIncrement = true;
 			return this;
 		}
 		
 		public Field setDefaultValue(String defaultValue) {
+			
 			this.defaultValue = defaultValue;
 			return this;
 		}
