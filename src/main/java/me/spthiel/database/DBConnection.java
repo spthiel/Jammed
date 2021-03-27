@@ -12,7 +12,7 @@ public class DBConnection {
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
 		
 		Connection connection = DriverManager.getConnection(
-			"jdbc:mariadb://" + Config.DBHost + "/" + Config.DBDatabase, Config.DBUser, "root"
+			"jdbc:mariadb://" + Config.DBHost + "/" + Config.DBDatabase, Config.DBUser, Config.DBPassword
 		);
 		Statement stmt = connection.createStatement();
 		stmt.executeUpdate("CREATE TABLE a (id int not null primary key, value varchar(20))");
