@@ -10,7 +10,7 @@ import me.spthiel.database.Table;
 
 public class SuggestionRepository {
 	
-	private static SuggestionRepository instance = new SuggestionRepository();
+	private static final SuggestionRepository instance = new SuggestionRepository();
 	
 	private HashMap<Snowflake, ArrayList<String>> suggestions;
 	
