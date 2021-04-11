@@ -92,9 +92,12 @@ public class DBConnection {
 				!field.isNotnull() && nullable == ResultSetMetaData.columnNullable;
 		boolean incrementMatches = field.isAutoIncrement() == tableMeta.isAutoIncrement(columnIndex);
 		
-//		Statement st = con.createStatement();
-//		st.executeUpdate("ALTER TABLE " + table.getName() + " MODIFY " + field.toString());
-//		st.close();
+		
+		if (!typeMatches || !nullableMatches || !incrementMatches) {
+			Statement st = con.createStatement();
+			st.executeUpdate("ALTER TABLE " + table.getName() + " MODIFY " + field.toString());
+			st.close();
+		}
 	}
 	
 	private int getColumnIndex(ResultSetMetaData metadata, Table.Field field) throws SQLException {
